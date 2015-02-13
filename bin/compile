@@ -82,8 +82,8 @@ BUILD_DIR=$APP_DIR
 export PATH=$BUILD_DIR/.heroku/python/bin:$PATH
 export PYTHONUNBUFFERED=1
 export LANG=en_US.UTF-8
-export LIBRARY_PATH=/app/.heroku/vendor/lib
-export LD_LIBRARY_PATH=/app/.heroku/vendor/lib
+export LIBRARY_PATH="/app/.heroku/vendor/lib/:$LIBRARY_PATH"
+export LD_LIBRARY_PATH="/app/.heroku/vendor/lib/:$LD_LIBRARY_PATH"
 
 # Switch to the repo's context.
 cd $BUILD_DIR
@@ -226,9 +226,9 @@ if (grep -Fiq "hg+" requirements.txt) then
   bpwatch stop mercurial_install
 fi
 
-echo "++++++++++++++++++++++++++++++++"
-printenv
-echo "++++++++++++++++++++++++++++++++"
+puts-step "++++++++++++++++++++++++++++++++"
+puts-step $(printenv)
+puts-step "++++++++++++++++++++++++++++++++"
 
 # Install dependencies with Pip.
 puts-step "Installing dependencies using Pip ($PIP_VERSION)"
