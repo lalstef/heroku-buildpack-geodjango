@@ -46,6 +46,11 @@ bpwatch init $LOGPLEX_KEY
 bpwatch build python $BUILDPACK_VERSION $REQUEST_ID
 TMP_APP_DIR=$CACHE_DIR/tmp_app_dir
 
+echo $LIBRARY_PATH
+echo $INCLUDE_PATH
+echo $(ls "/app/.heroku/python/include/python2.7/")
+echo $(ls "/app/.heroku/python/include/python2.7/usr/")
+
 bpwatch start compile
 
 
