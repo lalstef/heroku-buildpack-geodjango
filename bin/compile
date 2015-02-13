@@ -8,6 +8,10 @@
 # Fail fast and fail hard.
 set -eo pipefail
 
+echo "========================================="
+printenv
+echo "========================================="
+
 # Prepend proper path for virtualenv hackery. This will be deprecated soon.
 export PATH=:/usr/local/bin:$PATH
 
@@ -46,10 +50,12 @@ bpwatch init $LOGPLEX_KEY
 bpwatch build python $BUILDPACK_VERSION $REQUEST_ID
 TMP_APP_DIR=$CACHE_DIR/tmp_app_dir
 
+echo "HAHAHAHAHAHAHAHAHAHHA"
 echo $LIBRARY_PATH
 echo $INCLUDE_PATH
 echo $(ls "/app/.heroku/python/include/python2.7/")
 echo $(ls "/app/.heroku/python/include/python2.7/usr/")
+echo "HAHAHAHAHAHAHAHAHAHAHAHHA"
 
 bpwatch start compile
 
@@ -219,6 +225,10 @@ if (grep -Fiq "hg+" requirements.txt) then
     /app/.heroku/python/bin/pip install --use-mirrors mercurial | cleanup | indent
   bpwatch stop mercurial_install
 fi
+
+echo "++++++++++++++++++++++++++++++++"
+printenv
+echo "++++++++++++++++++++++++++++++++"
 
 # Install dependencies with Pip.
 puts-step "Installing dependencies using Pip ($PIP_VERSION)"
