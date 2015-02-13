@@ -8,10 +8,6 @@
 # Fail fast and fail hard.
 set -eo pipefail
 
-puts-step "========================================="
-printenv
-puts-step "========================================="
-
 # Prepend proper path for virtualenv hackery. This will be deprecated soon.
 export PATH=:/usr/local/bin:$PATH
 
@@ -49,13 +45,6 @@ unset GIT_DIR PYTHONHOME PYTHONPATH LD_LIBRARY_PATH LIBRARY_PATH
 bpwatch init $LOGPLEX_KEY
 bpwatch build python $BUILDPACK_VERSION $REQUEST_ID
 TMP_APP_DIR=$CACHE_DIR/tmp_app_dir
-
-puts-step "HAHAHAHAHAHAHAHAHAHHA"
-puts-step $LIBRARY_PATH
-puts-step $INCLUDE_PATH
-puts-step $(ls "/app/.heroku/python/include/python2.7/")
-puts-step $(ls "/app/.heroku/python/include/python2.7/usr/")
-puts-step "HAHAHAHAHAHAHAHAHAHAHAHHA"
 
 bpwatch start compile
 
@@ -109,6 +98,17 @@ if [ ! -f requirements.txt ]; then
   puts-step "No requirements.txt provided; assuming dist package."
   echo "-e ." > requirements.txt
 fi
+
+puts-step "========================================="
+puts-step $(printenv)
+puts-step "========================================="
+puts-step "HAHAHAHAHAHAHAHAHAHHA"
+puts-step $LIBRARY_PATH
+puts-step $INCLUDE_PATH
+puts-step $(ls "/app/.heroku/python/include/python2.7/")
+puts-step $(ls "/app/.heroku/python/include/python2.7/usr/")
+puts-step "HAHAHAHAHAHAHAHAHAHAHAHHA"
+
 
 # If no runtime given, assume default version.
 if [ ! -f runtime.txt ]; then
