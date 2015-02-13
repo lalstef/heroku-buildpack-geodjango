@@ -8,9 +8,9 @@
 # Fail fast and fail hard.
 set -eo pipefail
 
-echo "========================================="
+puts-step "========================================="
 printenv
-echo "========================================="
+puts-step "========================================="
 
 # Prepend proper path for virtualenv hackery. This will be deprecated soon.
 export PATH=:/usr/local/bin:$PATH
@@ -50,12 +50,12 @@ bpwatch init $LOGPLEX_KEY
 bpwatch build python $BUILDPACK_VERSION $REQUEST_ID
 TMP_APP_DIR=$CACHE_DIR/tmp_app_dir
 
-echo "HAHAHAHAHAHAHAHAHAHHA"
-echo $LIBRARY_PATH
-echo $INCLUDE_PATH
-echo $(ls "/app/.heroku/python/include/python2.7/")
-echo $(ls "/app/.heroku/python/include/python2.7/usr/")
-echo "HAHAHAHAHAHAHAHAHAHAHAHHA"
+puts-step "HAHAHAHAHAHAHAHAHAHHA"
+puts-step $LIBRARY_PATH
+puts-step $INCLUDE_PATH
+puts-step $(ls "/app/.heroku/python/include/python2.7/")
+puts-step $(ls "/app/.heroku/python/include/python2.7/usr/")
+puts-step "HAHAHAHAHAHAHAHAHAHAHAHHA"
 
 bpwatch start compile
 
