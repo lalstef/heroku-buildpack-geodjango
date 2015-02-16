@@ -234,15 +234,15 @@ echo $BUILD_DIR
 echo $(ls -a "$BUILD_DIR")
 echo $(ls -a "$BUILD_DIR/apt/usr")
 echo $(ls -la "$BUILD_DIR/apt/usr/include")
-INCLUDE_PATH="$BUILD_DIR/apt/usr/include:$INCLUDE_PATH:$BUILD_DIR/vendor/ffmpeg/include"
-CPATH="$BUILD_DIR/apt/usr/include:$CPATH:$BUILD_DIR/vendor/ffmpeg/include"
-LIBRARY_PATH="$BUILD_DIR/apt/usr/include:$LIBRARY_PATH:$BUILD_DIR/vendor/ffmpeg/include"
-echo $INCLUDE_PATH
+INCLUDE_PATH="$BUILD_DIR/vendor/ffmpeg/include:$INCLUDE_PATH"
+CPATH="$BUILD_DIR/vendor/ffmpeg/include:$CPATH"
+LIBRARY_PATH="$BUILD_DIR/vendor/ffmpeg/include:$LIBRARY_PATH"
+echo "INCLUDE_PATH = $INCLUDE_PATH"
+echo "CPATH = $CPATH"
+echo "LIBRARY_PATH = $LIBRARY_PATH"
 chmod -R a+rx $BUILD_DIR/vendor/ffmpeg
 #chmod -R a+rx $BUILD_DIR/apt/usr/include
-echo $(ls -la "$BUILD_DIR/apt/usr/include")
-echo $(ls -la "$BUILD_DIR/apt/usr/include/libavutil")
-echo $(ls -la "$BUILD_DIR/apt/usr/include/libavcodec")
+echo $(ls -la "$BUILD_DIR/vendor/ffmpeg/include")
 echo "---------------------------"
 
 # Install dependencies with Pip.
