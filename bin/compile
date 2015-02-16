@@ -102,13 +102,10 @@ fi
 
 puts-step "========================================="
 puts-step $(printenv)
-puts-step "========================================="
 puts-step "HAHAHAHAHAHAHAHAHAHHA"
 puts-step $LIBRARY_PATH
 puts-step $INCLUDE_PATH
-puts-step "$BUILD_DIR/.apt/usr/include"
-puts-step $(ls "/app/.heroku/python/include/python2.7/")
-puts-step $(ls "/app/.heroku/python/include/python2.7/usr/")
+puts-step $(ls "$BUILD_DIR/app/.apt/usr/include/")
 puts-step "HAHAHAHAHAHAHAHAHAHAHAHHA"
 
 
@@ -117,8 +114,6 @@ if [ ! -f runtime.txt ]; then
   puts-step "No runtime.txt provided; assuming $DEFAULT_PYTHON_VERSION."
   echo $DEFAULT_PYTHON_VERSION > runtime.txt
 fi
-
-puts-step "No requirements.txt provided; assuming dist package."
 
 # ### The Cache
 mkdir -p $CACHE_DIR
