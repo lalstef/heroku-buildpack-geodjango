@@ -105,7 +105,7 @@ puts-step $(printenv)
 puts-step "========================================="
 puts-step "HAHAHAHAHAHAHAHAHAHHA"
 puts-step $LIBRARY_PATH
-puts-step "$INCLUDE_PATH/.apt/usr/include""
+puts-step "$INCLUDE_PATH/.apt/usr/include"
 puts-step $(ls "/app/.heroku/python/include/python2.7/")
 puts-step $(ls "/app/.heroku/python/include/python2.7/usr/")
 puts-step "HAHAHAHAHAHAHAHAHAHAHAHHA"
