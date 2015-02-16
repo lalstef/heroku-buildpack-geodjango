@@ -84,6 +84,7 @@ export PYTHONUNBUFFERED=1
 export LANG=en_US.UTF-8
 export LIBRARY_PATH="/app/.heroku/vendor/lib/:$LIBRARY_PATH"
 export LD_LIBRARY_PATH="/app/.heroku/vendor/lib/:$LD_LIBRARY_PATH"
+export INCLUDE_PATH="/batman/:$INCLUDE_PATH"
 
 # Switch to the repo's context.
 cd $BUILD_DIR
