@@ -61,7 +61,7 @@ TMP_APP_DIR=$CACHE_DIR/tmp_app_dir
 
 echo $INCLUDE_PATH
 echo $(ls "$INCLUDE_PATH")
-echo $(ls -la /app/.apt)
+echo $(ls -a /app/.apt)
 echo $(ls -a /app/.apt/usr)
 echo $(ls -a /app/.apt/usr/include)
 echo $(ls -a /app/.apt/usr/lib)
@@ -75,6 +75,8 @@ bpwatch start anvil_appdir_stage
     deep-rm $APP_DIR
   fi
 bpwatch stop anvil_appdir_stage
+
+echo $(ls -a /app/.apt)
 
 # Copy Application code in.
 bpwatch start appdir_stage
