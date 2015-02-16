@@ -8,13 +8,6 @@
 # Fail fast and fail hard.
 set -eo pipefail
 
-echo $INCLUDE_PATH
-echo $(ls "$INCLUDE_PATH")
-  echo $(ls -la /app/.apt)
-  echo $(ls -a /app/.apt/usr)
-  echo $(ls -a /app/.apt/usr/include)
-  echo $(ls -a /app/.apt/usr/lib)
-
 # Prepend proper path for virtualenv hackery. This will be deprecated soon.
 export PATH=:/usr/local/bin:$PATH
 
@@ -66,6 +59,13 @@ source $BIN_DIR/utils
 APP_DIR='/app'
 TMP_APP_DIR=$CACHE_DIR/tmp_app_dir
 
+echo $INCLUDE_PATH
+echo $(ls "$INCLUDE_PATH")
+echo $(ls -la /app/.apt)
+echo $(ls -a /app/.apt/usr)
+echo $(ls -a /app/.apt/usr/include)
+echo $(ls -a /app/.apt/usr/lib)
+  
 # Copy Anvil app dir to temporary storage...
 bpwatch start anvil_appdir_stage
   if [ "$SLUG_ID" ]; then
