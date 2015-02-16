@@ -9,9 +9,6 @@
 set -eo pipefail
 
 echo $INCLUDE_PATH
-echo $(ls "$INCLUDE_PATH/usr")
-echo $(ls "$INCLUDE_PATH/usr/include")
-echo $(ls "$INCLUDE_PATH/usr/lib")
 
 # Prepend proper path for virtualenv hackery. This will be deprecated soon.
 export PATH=:/usr/local/bin:$PATH
