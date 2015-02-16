@@ -109,11 +109,6 @@ if [ ! -f requirements.txt ]; then
   echo "-e ." > requirements.txt
 fi
 
-puts-step "HAHAHAHAHAHAHAHAHAHHA"
-puts-step $LIBRARY_PATH
-puts-step $INCLUDE_PATH
-puts-step "HAHAHAHAHAHAHAHAHAHAHAHHA"
-
 
 # If no runtime given, assume default version.
 if [ ! -f runtime.txt ]; then
@@ -231,9 +226,6 @@ if (grep -Fiq "hg+" requirements.txt) then
   bpwatch stop mercurial_install
 fi
 
-puts-step "++++++++++++++++++++++++++++++++"
-puts-step $(printenv)
-puts-step "++++++++++++++++++++++++++++++++"
 
 # Install dependencies with Pip.
 puts-step "Installing dependencies using Pip ($PIP_VERSION)"
