@@ -238,6 +238,8 @@ INCLUDE_PATH="$BUILD_DIR/apt/usr/include:$INCLUDE_PATH"
 echo $INCLUDE_PATH
 chmod -R a+rx $BUILD_DIR/apt
 echo $(ls -la "$BUILD_DIR/apt/usr/include")
+echo $(ls -la "$BUILD_DIR/apt/usr/include/libavutil")
+echo $(ls -la "$BUILD_DIR/apt/usr/include/libavcodec")
 echo "---------------------------"
 
 # Install dependencies with Pip.
