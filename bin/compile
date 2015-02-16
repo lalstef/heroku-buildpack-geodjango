@@ -236,6 +236,7 @@ echo $(ls -a "$BUILD_DIR/apt/usr")
 echo $(ls -la "$BUILD_DIR/apt/usr/include")
 INCLUDE_PATH="$BUILD_DIR/vendor/ffmpeg/include:$INCLUDE_PATH"
 CPATH="$BUILD_DIR/vendor/ffmpeg/include:$CPATH"
+CPPPATH="$BUILD_DIR/vendor/ffmpeg/include:$CPPPATH"
 LIBRARY_PATH="$BUILD_DIR/vendor/ffmpeg/include:$LIBRARY_PATH"
 echo "INCLUDE_PATH = $INCLUDE_PATH"
 echo "CPATH = $CPATH"
