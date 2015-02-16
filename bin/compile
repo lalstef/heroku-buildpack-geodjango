@@ -105,7 +105,7 @@ puts-step $(printenv)
 puts-step "HAHAHAHAHAHAHAHAHAHHA"
 puts-step $LIBRARY_PATH
 puts-step $INCLUDE_PATH
-puts-step $(ls "$BUILD_DIR/.apt/usr/include/")
+puts-step $(ls "$BUILD_DIR/.apt/usr/include")
 puts-step "HAHAHAHAHAHAHAHAHAHAHAHHA"
 
 
