@@ -239,7 +239,7 @@ CPATH="$BUILD_DIR/apt/usr/include:$CPATH:$BUILD_DIR/vendor/ffmpeg/include"
 LIBRARY_PATH="$BUILD_DIR/apt/usr/include:$LIBRARY_PATH:$BUILD_DIR/vendor/ffmpeg/include"
 echo $INCLUDE_PATH
 chmod -R a+rx $BUILD_DIR/vendor/ffmpeg
-chmod -R a+rx $BUILD_DIR/apt/usr/include
+#chmod -R a+rx $BUILD_DIR/apt/usr/include
 echo $(ls -la "$BUILD_DIR/apt/usr/include")
 echo $(ls -la "$BUILD_DIR/apt/usr/include/libavutil")
 echo $(ls -la "$BUILD_DIR/apt/usr/include/libavcodec")
