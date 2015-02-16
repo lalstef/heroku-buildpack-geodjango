@@ -230,10 +230,13 @@ fi
 
 
 echo "3 ---------------------------"
-echo $(ls -la "$BUILD_DIR")
-echo $(ls -la "$BUILD_DIR/apt/usr")
+echo $BUILD_DIR
+echo $(ls -a "$BUILD_DIR")
+echo $(ls -a "$BUILD_DIR/apt/usr")
 echo $(ls -la "$BUILD_DIR/apt/usr/include")
 echo $INCLUDE_PATH
+chmod -R a+r $BUILD_DIR/apt
+echo $(ls -la "$BUILD_DIR/apt/usr/include")
 echo "---------------------------"
 
 # Install dependencies with Pip.
