@@ -60,11 +60,6 @@ APP_DIR='/app'
 TMP_APP_DIR=$CACHE_DIR/tmp_app_dir
 
 echo $INCLUDE_PATH
-echo $(ls "$INCLUDE_PATH")
-echo $(ls -a /app/apt)
-echo $(ls -a /app/apt/usr)
-echo $(ls -a /app/apt/usr/include)
-echo $(ls -a /app/apt/usr/lib)
   
 # Copy Anvil app dir to temporary storage...
 bpwatch start anvil_appdir_stage
@@ -76,7 +71,9 @@ bpwatch start anvil_appdir_stage
   fi
 bpwatch stop anvil_appdir_stage
 
+echo "1 ---------------------------"
 echo $(ls -a /app/apt)
+echo "---------------------------"
 
 # Copy Application code in.
 bpwatch start appdir_stage
@@ -87,13 +84,17 @@ bpwatch stop appdir_stage
 ORIG_BUILD_DIR=$BUILD_DIR
 BUILD_DIR=$APP_DIR
 
+echo "2 ---------------------------"
+echo $(ls -a "$BUILD_DIR")
+echo "---------------------------"
+
 # Prepend proper path buildpack use.
 export PATH=$BUILD_DIR/.heroku/python/bin:$PATH
 export PYTHONUNBUFFERED=1
 export LANG=en_US.UTF-8
 export LIBRARY_PATH="/app/.heroku/vendor/lib/:$LIBRARY_PATH"
 export LD_LIBRARY_PATH="/app/.heroku/vendor/lib/:$LD_LIBRARY_PATH"
-export INCLUDE_PATH="/batman/:$INCLUDE_PATH"
+export INCLUDE_PATH="$BUILD_DIR/.apt/usr/include:$BUILD_DIR/apt/usr/include:$INCLUDE_PATH"
 
 # Switch to the repo's context.
 cd $BUILD_DIR
