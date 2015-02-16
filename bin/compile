@@ -117,6 +117,8 @@ if [ ! -f runtime.txt ]; then
   echo $DEFAULT_PYTHON_VERSION > runtime.txt
 fi
 
+puts-step "No requirements.txt provided; assuming dist package."
+
 # ### The Cache
 mkdir -p $CACHE_DIR
 
