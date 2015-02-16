@@ -234,8 +234,9 @@ echo $BUILD_DIR
 echo $(ls -a "$BUILD_DIR")
 echo $(ls -a "$BUILD_DIR/apt/usr")
 echo $(ls -la "$BUILD_DIR/apt/usr/include")
+INCLUDE_PATH="$BUILD_DIR/apt/usr/include:$INCLUDE_PATH"
 echo $INCLUDE_PATH
-chmod -R a+r $BUILD_DIR/apt
+chmod -R a+rx $BUILD_DIR/apt
 echo $(ls -la "$BUILD_DIR/apt/usr/include")
 echo "---------------------------"
 
